@@ -14,7 +14,7 @@ CORS(app)  # Active le CORS pour tout
 
 def gemini_funct(message:str):
     # The client gets the API key from the environment variable `GEMINI_API_KEY`.
-    client = genai.Client(api_key="")
+    client = genai.Client(api_key="AIzaSyB99x6QGIlC_cDsNNT1CovJ8_FArige8BU")
 
     response = client.models.generate_content(
         model="gemini-2.5-flash", contents=message
@@ -36,4 +36,4 @@ def recevoir_entier():
    
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
