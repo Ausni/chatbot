@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Simple</title>
+   <link rel="stylesheet" href="chatbot_style.css">
+</head>
+<body>
+    <!-- Contenu de la page -->
+    <div style="text-align: center; margin-top: 100px; color: white;">
+        <h1>Chatbot-simple</h1>
+        <p>Cliquez sur l'icône du chatbot en bas à droite pour commencer une conversation !</p>
+        <div id="response"></div>
+    </div>
+
+    <!-- Icône du chatbot -->
+    <div class="chatbot-icon" id="chatbotIcon">
+        <svg viewBox="0 0 24 24" id="defaultIcon">
+            <path d="M12,2A2,2 0 0,1 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4A2,2 0 0,1 12,2ZM21,9V7L15,3V4H9V3L3,7V9H21ZM12,12.5C11.2,12.5 10.5,13.2 10.5,14C10.5,14.8 11.2,15.5 12,15.5C12.8,15.5 13.5,14.8 13.5,14C13.5,13.2 12.8,12.5 12,12.5ZM21,10H3V20H21V10ZM5,12H8V14H5V12ZM5,15H8V17H5V15ZM16,12H19V14H16V12ZM16,15H19V17H16V15Z"/>
+        </svg>
+    </div>
+
+    <!-- Interface du chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            Assistant Virtuel
+        </div>
+        
+        <div class="messages-area" id="messagesArea">
+            <div class="message bot">
+                Bonjour ! Je suis votre assistant virtuel. Comment puis-je vous aider ?
+            </div>
+        </div>
+        
+        <div class="input-area">
+            <input 
+                type="text" 
+                class="message-input" 
+                id="messageInput" 
+                placeholder="Tapez votre message..."
+                maxlength="300"
+            >
+            <button class="send-btn" id="sendBtn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+<script src="script_chatbot.js"></script>
+</body>
+</html>
