@@ -12,9 +12,9 @@ app = Flask(__name__)
 CORS(app)  # Active le CORS pour tout
 
 
-def gemini_funct(message:str):
+def generer_la_reponse(message:str):
     # The client gets the API key from the environment variable `GEMINI_API_KEY`.
-    client = genai.Client(api_key="AIzaSyB99x6QGIlC_cDsNNT1CovJ8_FArige8BU")
+    client = genai.Client(api_key="votre_cles_api")
 
     response = client.models.generate_content(
         model="gemini-2.5-flash", contents=message
@@ -24,16 +24,17 @@ def gemini_funct(message:str):
 
 
 @app.route('/api/endpoint/ai/gemini', methods=['POST'])
-def recevoir_entier():
+def traiter_la_requette():
     data = request.get_json()
     if not data or 'valeur' not in data:
         return jsonify({'error': 'Aucune valeur reçue'}), 400
 
-    gemini_reponse=gemini_funct(data["valeur"])
+    reponse=generer_la_reponse(data["valeur"])
 
     print(f"Entier reçu : {data}")
-    return jsonify({'message': 'Entier bien reçu', 'valeur': gemini_reponse}), 200     
+    return jsonify({'message': 'Entier bien reçu', 'valeur': reponse}), 200     
    
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    #app.run(host='0.0.0.0',debug=True)
+    app.run(debug=True)
